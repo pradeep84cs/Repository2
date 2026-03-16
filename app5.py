@@ -104,7 +104,12 @@ def evaluate_model(model,name):
     f1=f1_score(y_test,pred)
     auc=roc_auc_score(y_test,prob)
 
-    cv=cross_val_score(model,X_train,y_train,cv=5).mean()
+    #cv=cross_val_score(model,X_train,y_train,cv=5).mean()
+    # Cross Validation Fix
+    if name in ["TabNet","Neural Network"]:
+    cv = None
+    else:
+    cv = cross_val_score(model, X_train, y_train, cv=5).mean()
 
     st.write("Accuracy:",acc)
     st.write("Precision:",prec)
