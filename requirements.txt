@@ -4,4 +4,8 @@ numpy
 matplotlib
 seaborn
 scikit-learn
+xgboost
+lightgbm
+catboost
+pytorch-tabnet
 shap
